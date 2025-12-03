@@ -69,7 +69,7 @@ h2 {  font-size: 3em; }
 h3 {  font-size: 2em; }
 h4 {  font-size: 1.6em; }
 h5 {  font-size: 1.2em; }
-h6 {  font-size: 0.8em;, font-weight: 200; }
+h6 {  font-size: 0.8em; font-weight: 200; }
 
 a {
     text-decoration: none;
@@ -96,11 +96,15 @@ body {
 }
 .header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     height: 240px;
-    padding-bottom: 20px;
+    padding: 0 20px 20px 20px;
     border-bottom: 1px solid;
+}
+
+.header__right {
+    padding-right: 30px;
 }
 
 .header__left {
@@ -156,6 +160,49 @@ body {
 
 .work p {
     padding-left: 15px;
+}
+
+.linkedin-cta {
+    margin: 50px 0 30px 0;
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid;
+}
+
+.linkedin-cta p {
+    margin: 0 0 15px 0;
+    padding: 0;
+    font-size: 1em;
+}
+
+.linkedin-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border: 1px solid;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.linkedin-link:hover {
+    background-color: #3C3C3B;
+    color: #fff;
+}
+
+.linkedin-link img {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+}
+
+.linkedin-link span {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.print-linkedin-disclaimer {
+    display: none;
 }
 
 .skills {
@@ -257,10 +304,23 @@ body {
         line-height: 1.5em;
     }
     .header {
-        height: 130px;
+        height: auto;
+        min-height: 80px;
+        padding: 10px 20px;
+        margin-bottom: 0;
+        page-break-after: avoid;
+        page-break-inside: avoid;
     }
     .header__left h5 {
-        margin: 8px 0;
+        margin: 5px 0;
+    }
+    .content {
+        padding: 15px 20px;
+        margin-top: 0;
+    }
+    .content__left,
+    .content__right {
+        padding: 0 15px 0 0;
     }
     .tag {
         padding: 1px 10px;
@@ -276,5 +336,17 @@ body {
     }
     .skills {
         padding-top: 20px;
+    }
+    .print-linkedin-disclaimer {
+        display: block;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #000;
+        text-align: center;
+        font-size: 0.9em;
+    }
+    .print-linkedin-disclaimer p {
+        margin: 0;
+        padding: 0;
     }
 }
