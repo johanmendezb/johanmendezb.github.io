@@ -6,8 +6,16 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Johan Méndez Frontend developer</title>
-        <meta name="description" content="Johan Méndez is a web developer based in Colombia">
+        <title>Johan Méndez Full Stack Developer</title>
+        <meta name="description" content="Johan Méndez is a full stack developer based in Colombia">
+        <script>
+            // Check for frontend view query parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const isFrontendView = urlParams.get('frontend') === 'true' || urlParams.get('view') === 'frontend';
+            if (isFrontendView) {
+                document.documentElement.classList.add('frontend-view');
+            }
+        </script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
@@ -23,7 +31,7 @@
         <header class="header">
             <div class="header__right">
                 <h1>Johan Méndez</h1>
-                <h3>Frontend Developer</h3>
+                <h3 class="header-title">Full Stack Developer</h3>
                 <a class="hide-on-print pointer" onclick="window.print();" title="print me ;)"><img src="./img/printer.svg"></a>
             </div>
             <div class="header__left">
@@ -37,10 +45,12 @@
             <div class="content__left">
                 <div class="profile">
                     <h4>PROFILE</h4>
-                    <p>Product-minded Frontend developer with 10+ years delivering digital products across fintech, e-commerce, logistics, telecommunications, tourism, and propTech. I build things that ship. My foundation is frontend development — creating maintainable, accessible, and performant interfaces — but I've grown into backend systems and AI-assisted workflows to deliver end-to-end solutions.</p>
-                    <p>I leverage GenAI tools ethically and strategically, accelerating development cycles while maintaining code quality.</p>
-                    <p class="hide-on-print">Working as a core team member in early-stage startups shaped how I approach problems: with architectural clarity, cross-functional collaboration, and a bias toward shipping. I've made critical technical decisions under pressure, collaborated closely with product and design teams, and learned that the best code is the code that solves real user problems.</p>
-                    <p class="hide-on-print">What I bring: technical depth with a product lens and a process-driven mindset. I care as much about how teams build as what they build — establishing standards, improving workflows, and creating the conditions for consistent, high-quality delivery. Whether defining system architecture, mentoring teams, or streamlining development practices — I focus on sustainable results that create real value.</p>
+                    <p class="profile-text-fullstack">Product-minded Full Stack Developer with a strong frontend foundation and 10+ years delivering digital products across fintech, e-commerce, logistics, telecommunications, tourism, and propTech. I build things that ship. My core strength is frontend development — creating maintainable, accessible, and performant interfaces — while I'm comfortable working across the full stack, architecting backend systems and AI-assisted workflows to deliver end-to-end solutions.</p>
+                    <p class="profile-text-fullstack">I leverage GenAI tools ethically and strategically, accelerating development cycles while maintaining code quality. While my expertise is strongest on the frontend, I know my way around backend APIs, databases, and infrastructure, enabling me to work independently across the entire technology stack.</p>
+                    <p class="profile-text-frontend" style="display: none;">Product-minded Frontend Developer with 10+ years delivering digital products across fintech, e-commerce, logistics, telecommunications, tourism, and propTech. I build things that ship. My expertise is in frontend development — creating maintainable, accessible, and performant interfaces that solve real user problems.</p>
+                    <p class="profile-text-frontend" style="display: none;">I leverage GenAI tools ethically and strategically, accelerating development cycles while maintaining code quality. I work closely with backend teams and understand API integrations, but my core strength is crafting exceptional user experiences through thoughtful frontend architecture and implementation.</p>
+                    <p class="">Working as a core team member in early-stage startups shaped how I approach problems: with architectural clarity, cross-functional collaboration, and a bias toward shipping. I've made critical technical decisions under pressure, collaborated closely with product and design teams, and learned that the best code is the code that solves real user problems.</p>
+                    <p class="">What I bring: technical depth with a product lens and a process-driven mindset. I care as much about how teams build as what they build — establishing standards, improving workflows, and creating the conditions for consistent, high-quality delivery. Whether defining system architecture, mentoring teams, or streamlining development practices — I focus on sustainable results that create real value.</p>
                 </div>
                 <div class="skills">
                     <h4>SKILLS</h4>
@@ -52,27 +62,19 @@
                             <span class="tag">Mentoring</span>
                             <span class="tag">Code Review</span>
                             <span class="tag">Technical Leadership</span>
-                            <span class="tag">AI-Powered Development</span>
-                            <span class="tag">Cursor</span>
-                            <span class="tag">Claude</span>
-                            <span class="tag">OpenAI</span>
                             <span class="tag">HTML & CSS</span>
-                            <span class="tag">CI/CD</span>
                             <span class="tag">Unit testing</span>
                             <span class="tag">E2E Testing</span>
                             <span class="tag">Accessibility(AA, AAA)</span>
-                            <span class="tag hide-on-print">Automation tools</span>
-                            <span class="tag hide-on-print">Module bundlers</span>
+                            <span class="tag ">Automation tools</span>
+                            <span class="tag ">Module bundlers</span>
                             <span class="tag">GIT</span>
-                            <span class="tag hide-on-print">Headless CMS</span>
+                            <span class="tag ">Headless CMS</span>
                             <span class="tag">System Design</span>
-                            <span class="tag">REST APIs</span>
-                            <span class="tag hide-on-print">Microservices</span>
-                            <span class="tag hide-on-print">Node.js</span>
                         </div>
                     </div>
                     <div class="skill">
-                        <h5>Libraries and Frameworks</h5>
+                        <h5>Frontend</h5>
                         <div class="tags">
                             <span class="tag">React & React Native</span>
                             <span class="tag">Vue.js</span>
@@ -82,17 +84,59 @@
                             <span class="tag">PWA</span>
                             <span class="tag">Graphql</span>
                             <span class="tag">Apollo</span>
+                            <span class="tag">Monorepos</span>
+                            <span class="tag">Turborepo</span>
+                            <span class="tag">Nx</span>
                             <span class="tag">Jest</span>
                             <span class="tag">State Management</span>
-                            <span class="tag hide-on-print">Redux</span>
-                            <span class="tag hide-on-print">Testing library</span>
-                            <span class="tag hide-on-print">Webpack</span>
-                            <span class="tag hide-on-print">Vite</span>
-                            <span class="tag hide-on-print">Grunt & Gulp</span>
-                            <span class="tag hide-on-print">Angular</span>
+                            <span class="tag ">Redux</span>
+                            <span class="tag ">Testing library</span>
+                            <span class="tag ">Webpack</span>
+                            <span class="tag ">Vite</span>
+                            <span class="tag ">Grunt & Gulp</span>
+                            <span class="tag ">Angular</span>
                         </div>
                     </div>
-                    <div class="skill hide-on-print">
+                    <div class="skill hide-on-frontend">
+                        <h5>Backend</h5>
+                        <div class="tags">
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Express</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Django</span>
+                            <span class="tag">Flask</span>
+                            <span class="tag">Ruby</span>
+                            <span class="tag">Ruby on Rails</span>
+                            <span class="tag">REST APIs</span>
+                            <span class="tag">Microservices</span>
+                        </div>
+                    </div>
+                    <div class="skill hide-on-frontend">
+                        <h5>DevOps & Cloud</h5>
+                        <div class="tags">
+                            <span class="tag">AWS</span>
+                            <span class="tag">Elastic Beanstalk</span>
+                            <span class="tag">S3</span>
+                            <span class="tag">Lambda</span>
+                            <span class="tag">CloudWatch</span>
+                            <span class="tag">GitHub Actions</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">CI/CD</span>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <h5>AI & Machine Learning</h5>
+                        <div class="tags">
+                            <span class="tag">LangChain</span>
+                            <span class="tag">OpenAI</span>
+                            <span class="tag">Anthropic Claude</span>
+                            <span class="tag">Hugging Face</span>
+                            <span class="tag">AI-Powered Development</span>
+                            <span class="tag">Cursor</span>
+                            <span class="tag">Claude</span>
+                        </div>
+                    </div>
+                    <div class="skill ">
                         <h5>Media Tools</h5>
                         <div class="tags">
                             <span class="tag">Adobe suite</span>
@@ -103,17 +147,17 @@
                     <div class="skill">
                         <h5>Web principles</h5>
                         <div class="tags">
-                            <span class="tag hide-on-print">Cross-Browser compatibility</span>
-                            <span class="tag hide-on-print">KISS principle</span>
+                            <span class="tag ">Cross-Browser compatibility</span>
+                            <span class="tag ">KISS principle</span>
                             <span class="tag">Performance optimization</span>
-                            <span class="tag hide-on-print hide-on-print">Core Web Vitals</span>
-                            <span class="tag hide-on-print hide-on-print">OOCSS, BEM, SMACSS</span>
+                            <span class="tag  ">Core Web Vitals</span>
+                            <span class="tag  ">OOCSS, BEM, SMACSS</span>
                             <span class="tag">TDD</span>
                             <span class="tag">SEO</span>
-                            <span class="tag hide-on-print">Responsive first</span>
-                            <span class="tag hide-on-print">DRY</span>
-                            <span class="tag hide-on-print">Agile/Scrum</span>
-                            <span class="tag hide-on-print">Technical Documentation</span>
+                            <span class="tag ">Responsive first</span>
+                            <span class="tag ">DRY</span>
+                            <span class="tag ">Agile/Scrum</span>
+                            <span class="tag ">Technical Documentation</span>
                             <span class="tag">Design Patterns</span>
                             <span class="tag">Code Architecture</span>
                         </div>
@@ -126,6 +170,14 @@
                         </div>
                     </div>
                 </div>
+                <div class="linkedin-cta hide-on-print">
+                    <p>View more experience and detailed project
+                     information on</p>
+                    <a href="https://www.linkedin.com/in/johanemendezg/" target="_blank" rel="noopener noreferrer" class="linkedin-link">
+                        <img src="./img/linkedin.svg" alt="LinkedIn">
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
             </div>
             <div class="content__right">
                 <h4>PROFESSIONAL EXPERIENCE</h4>
@@ -135,7 +187,7 @@
                         <span class="tag">Senior Frontend Developer</span>
                     </div>
                     <h6>Apr 2023 - Dec 2025, 2 yrs 9 mos</h6>
-                    <p class="hide-on-print">Part of the Growth team at this fast-paced startup, where I took on a dynamic cross-functional role building features for both customer-facing and internal products.</p>
+                    <p class="">Part of the Growth team at this fast-paced startup, where I took on a dynamic cross-functional role building features for both customer-facing and internal products.</p>
                     <p>Owned end-to-end product development: from strategic definition with stakeholders and C-level executives through to development, testing, documentation, and team demos. Transformed raw ideas into live products by implementing structured product development processes. Leveraged AI to accelerate deliveries and optimize workflows. Defined and implemented an ethical and structured framework for the team to work with Generative AI tools (including Cursor, Claude, and OpenAI) in our daily development workflow, ensuring responsible use while maximizing productivity gains. Automated communications, content creation, and team processes to support rapid-fire execution. Operated in a high-velocity environment where adaptability and wearing multiple hats was essential.</p>
                 </section>
                 <section class="work">
@@ -145,7 +197,7 @@
                     </div>
                     <h6>Dec 2021 - Mar 2023, 1 yr 4 mos</h6>
                     <p>Developed a Progressive Web Application (PWA) for a fintech company offering short-term loans. Provided architectural and technical solutions for different flows on the app, delivered as widgets. Integrated open banking services, custom authentication, and session handling services. Technologies used include Vue 3 and Nuxt 3, with a Server-Side Rendering (SSR) approach, and Contentful.</p>
-                    <p class="hide-on-print">Ensured focus on security, personal data handling, and code quality. Worked closely with the client to understand their requirements and translate them into technical tasks. Provided extensive support to the team and the client's team, ensuring a smooth handoff of the project. Created thorough documentation to support the project, facilitating future maintenance and updates.</p>
+                    <p class="">Ensured focus on security, personal data handling, and code quality. Worked closely with the client to understand their requirements and translate them into technical tasks. Provided extensive support to the team and the client's team, ensuring a smooth handoff of the project. Created thorough documentation to support the project, facilitating future maintenance and updates.</p>
                 </section>
                 <section class="work">
                     <div class="work__title">
@@ -155,10 +207,10 @@
                     <h6>July 2021 - December 2021, 6 months</h6>
                     <p>Facilitated team's work and ensured the highest technical quality. Mentored engineers in their career growth and led the Vue.js league, a large and continuously growing study group with defined goals.</p>
                     <p>Led development of an office booking SSR page using a headless approach with Contentful, React, Next.js, GraphQL, and Apollo Client. Led development of an important music platform site focused on smooth transitions and animated content visualization, utilizing React, Next.js, Contentful, and GraphQL.</p>
-                    <p class="hide-on-print">Established foundational code and technical standards for projects, serving as a go-to resource for the team. Worked closely with product and client teams to define feature requirements and refine tasks. Ensured excellent accessibility and SEO by optimizing site content and implementing a blog with rich context.</p>
-                    <p class="hide-on-print">Led by example, maintaining technical work capacity and providing code review and feedback. Conducted regular 1:1s with team members, providing constructive feedback and addressing concerns to foster open communication and promote personal and professional growth. Conducted several interviews for front-end developers, assessing their technical skills and cultural fit.</p>
+                    <p class="">Established foundational code and technical standards for projects, serving as a go-to resource for the team. Worked closely with product and client teams to define feature requirements and refine tasks. Ensured excellent accessibility and SEO by optimizing site content and implementing a blog with rich context.</p>
+                    <p class="">Led by example, maintaining technical work capacity and providing code review and feedback. Conducted regular 1:1s with team members, providing constructive feedback and addressing concerns to foster open communication and promote personal and professional growth. Conducted several interviews for front-end developers, assessing their technical skills and cultural fit.</p>
                 </section>
-                <section class="work hide-on-print">
+                <section class="work ">
                     <div class="work__title">
                         <h5>Huge</h5>
                         <span class="tag">Senior Web Engineer</span>
@@ -167,16 +219,74 @@
                     <p>Developed and maintained multiple websites, including a content-heavy platform for a pesticide, utilizing React.js, Next.js, GraphQL, and Contentful to optimize performance and user experience.</p>
                     <p>Worked on a high-end jewelry e-commerce site built with Vue.js and Drupal, featuring extensive product customization. Collaborated on a marketing site for Google Labs, utilizing Flask Python and vanilla JavaScript, incorporating particle animations and transitions to deliver a smooth and engaging user experience.</p>
                 </section>
-                <div class="linkedin-cta hide-on-print">
-                    <p>View more experience and detailed project information on</p>
-                    <a href="https://www.linkedin.com/in/johanemendezg/" target="_blank" rel="noopener noreferrer" class="linkedin-link">
-                        <img src="./img/linkedin.svg" alt="LinkedIn">
-                        <span>LinkedIn</span>
-                    </a>
-                </div>
-                <div class="print-linkedin-disclaimer">
-                    <p>For more experience and detailed project information, visit: linkedin.com/in/johanemendezg</p>
-                </div>
+                <section class="work">
+                    <div class="work__title">
+                        <h5>Publicis Global Delivery (PGD)</h5>
+                        <span class="tag">Senior Frontend Developer</span>
+                    </div>
+                    <h6>May 2018 - Mar 2019, 11 mos</h6>
+                    <p>Worked for a large cruise ship company, focusing on improving the platform's accessibility and performance. Successfully helped the company achieve an AAA accessibility rating for the entire platform and implemented several performance optimization techniques using React.</p>
+                </section>
+                <section class="work">
+                    <div class="work__title">
+                        <h5>BITS Americas S.A.S</h5>
+                        <span class="tag">Senior Frontend Developer</span>
+                    </div>
+                    <h6>Sep 2017 - May 2018, 9 mos</h6>
+                    <p>Provided consulting and architecture development services for a large telecommunications company, focusing on improving website performance for users with slow network speeds, outdated operating systems, and browsers.</p>
+                    <p>Refactored and improved legacy jQuery code using JavaScript and Object-Oriented Programming (OOP) principles, implementing modern coding practices and optimizing the codebase for performance and scalability. Developed several key features on the platform using Angular.</p>
+                </section>
+                <section class="work">
+                    <div class="work__title">
+                        <h5>Liftit</h5>
+                        <span class="tag">Frontend Developer, Product Development</span>
+                    </div>
+                    <h6>Oct 2016 - Aug 2017, 11 mos</h6>
+                    <p>As part of a team at a startup in the truck operation industry, worked on two major projects: a web app called "liftit.co" and an Android app called "liftit operadores." Throughout the project lifecycle, was involved in product planning and worked closely with stakeholders to ensure high-quality solutions.</p>
+                    <p>The stack included React and React Native, along with Redux, Sagas, and pure stateless components. With a focus on efficiency and quality, successfully developed and launched both applications in record time, resulting in a positive impact on business and user experience.</p>
+                </section>
+                <section class="work">
+                    <div class="work__title">
+                        <h5>Mesfix</h5>
+                        <span class="tag">Frontend, UX</span>
+                    </div>
+                    <h6>Dec 2015 - Oct 2016, 11 mos</h6>
+                    <p>As a frontend developer for a fintech startup specializing in crowdfactoring, played a key role in taking the Minimum Viable Product (MVP) to the next level. Leveraged expertise in Polymer and microservices to develop a robust and scalable interface that met user needs.</p>
+                    <p>Worked closely with founders to define and implement new technologies to optimize workflows and streamline processes across all areas of the platform. Also played a significant role in product management and UX research, collaborating closely with cross-functional teams to gather feedback, identify pain points, and incorporate insights into the development process.</p>
+                </section>
+                <section class="work">
+                    <div class="work__title">
+                        <h5>Vlipco</h5>
+                        <span class="tag">Frontend Developer</span>
+                    </div>
+                    <h6>Jan 2014 - Apr 2015, 1 yr 4 mos</h6>
+                    <p>Started with basic HTML, CSS animations, and the use of API services with JavaScript, gaining a better understanding of how the web works. Worked with popular CMS platforms to develop and maintain websites.</p>
+                </section>
+                <h4 class="freelance-section hide-on-frontend">FREELANCE EXPERIENCE</h4>
+                <section class="work hide-on-frontend">
+                    <div class="work__title">
+                        <h5>Bigtrack</h5>
+                        <span class="tag">Lead Engineer</span>
+                    </div>
+                    <h6>Freelance</h6>
+                    <p>Led the engineering team to develop a Progressive Web Application (PWA) using Python with Django for a mining industry tracking solution. Built an AI-powered chat assistant integrated with WhatsApp to enable executives to interact with mining operation data in real-time, providing insights and recommendations for operational efficiency and profitability.</p>
+                </section>
+                <section class="work hide-on-frontend">
+                    <div class="work__title">
+                        <h5>Vinos del Rio</h5>
+                        <span class="tag">Full Stack Developer</span>
+                    </div>
+                    <h6>Freelance</h6>
+                    <p>Developed a full-featured e-commerce platform using Ruby on Rails to enable wine subscription services. Implemented secure payment gateways, subscription management, and inventory tracking systems to support recurring orders and customer retention.</p>
+                </section>
+                <section class="work hide-on-frontend">
+                    <div class="work__title">
+                        <h5>Cherry Cups</h5>
+                        <span class="tag">Full Stack Developer</span>
+                    </div>
+                    <h6>Freelance</h6>
+                    <p>Built a complete Ruby on Rails e-commerce platform for menstrual cups. Developed user-friendly interfaces, efficient inventory management, and order processing systems to support online sales and customer management.</p>
+                </section>
             </div>
         </main>
         <script src="js/main.js"></script>

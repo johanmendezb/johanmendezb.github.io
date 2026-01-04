@@ -6,6 +6,19 @@ html {
     line-height: 1.4;
 }
 
+/* Frontend View Styles */
+.frontend-view .hide-on-frontend {
+    display: none !important;
+}
+
+.frontend-view .profile-text-fullstack {
+    display: none !important;
+}
+
+.frontend-view .profile-text-frontend {
+    display: block !important;
+}
+
 ::-moz-selection {
     background: #3C3C3B;
     text-shadow: none;
@@ -142,17 +155,42 @@ body {
 .content {
     display: flex;
     justify-content: space-between;
+    align-items: stretch;
     padding: 35px 20px;
 }
 
 .content__left {
     flex: 0 0 50%;
     padding: 0 80px 0 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .content__right {
     flex: 0 0 45%;
     padding: 0 30px 0 0;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    align-self: stretch;
+}
+
+.content__right::-webkit-scrollbar {
+    width: 6px;
+}
+
+.content__right::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.content__right::-webkit-scrollbar-thumb {
+    background: #3C3C3B;
+    border-radius: 3px;
+}
+
+.content__right::-webkit-scrollbar-thumb:hover {
+    background: #2a2a29;
 }
 
 .tag {
@@ -163,7 +201,17 @@ body {
 }
 
 .work {
-    margin: 30px 0;
+    margin: 25px 0;
+}
+
+.work p {
+    font-size: 0.95em;
+    line-height: 1.5;
+    margin-bottom: 0.8em;
+}
+
+.work p:last-child {
+    margin-bottom: 0;
 }
 
 .work__title {
@@ -269,6 +317,26 @@ body {
     .hide-on-print {
         display: none;
     }
+    /* In frontend view, keep frontend-only content hidden when printing */
+    .frontend-view .hide-on-frontend {
+        display: none !important;
+    }
+    .frontend-view .profile-text-fullstack {
+        display: none !important;
+    }
+    .frontend-view .profile-text-frontend {
+        display: block !important;
+    }
+    /* For full stack view (no frontend-view class), show everything */
+    html:not(.frontend-view) .hide-on-frontend {
+        display: block !important;
+    }
+    html:not(.frontend-view) .profile-text-fullstack {
+        display: block !important;
+    }
+    html:not(.frontend-view) .profile-text-frontend {
+        display: none !important;
+    }
     *,
     *:before,
     *:after {
@@ -344,16 +412,34 @@ body {
         margin: 5px 0;
     }
     .content {
+        flex-direction: column;
         padding: 15px 20px;
         margin-top: 0;
     }
     .content__left {
-        flex: 0 0 40%;
-        padding: 0 15px 0 0;
+        flex: 1 1 auto;
+        width: 100%;
+        padding: 0;
+        margin-bottom: 20px;
     }
     .content__right {
-        flex: 0 0 55%;
-        padding: 0 15px 0 0;
+        flex: 1 1 auto;
+        width: 100%;
+        padding: 0;
+        max-height: none;
+        overflow-y: visible;
+    }
+    .profile {
+        margin-bottom: 20px;
+    }
+    .skills {
+        padding-top: 0;
+        margin-bottom: 20px;
+    }
+    .freelance-section {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #000;
     }
     .tag {
         padding: 1px 10px;
@@ -367,8 +453,23 @@ body {
     .skill h5 {
         padding-bottom: 10px;
     }
-    .skills {
+    /* Hide empty skill sections in frontend view when printing */
+    .frontend-view .skill.hide-on-frontend {
+        display: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .work {
+        margin: 20px 0;
+    }
+    .work p {
+        font-size: 12px;
+        line-height: 1.5em;
+    }
+    .freelance-section {
+        margin-top: 30px;
         padding-top: 20px;
+        border-top: 1px solid #000;
     }
     .print-linkedin-disclaimer {
         display: block;
